@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    ext {
+        lombokVersion = "1.18.8"
+
+        springBootVersion = "2.1.7.RELEASE"
+        springCloudVersion = "2.1.2.RELEASE"
+        springRetryVersion = "1.2.4.RELEASE"
+        jsonIterVersion = "0.9.23"
+        javaAssistVersion = "3.25.0-GA"
+        junitJupiterVersion = "5.4.2"
+        mockitoVersion = "3.0.0"
+        assertjVersion = "3.13.2"
+        
+        embeddedMongoVersion = "2.2.0"
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'aaronrebak.gitlab.io'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+
+    implementation "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudVersion}"
+    implementation "io.github.openfeign:feign-httpclient:10.3.0"
+
+    implementation "org.springframework.retry:spring-retry:${springRetryVersion}"
+
+    implementation "com.jsoniter:jsoniter:${jsonIterVersion}"
+    implementation "org.javassist:javassist:${javaAssistVersion}"
+
+
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitJupiterVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testImplementation "org.springframework.cloud:spring-cloud-contract-wiremock:${springCloudVersion}"
+    testImplementation "org.assertj:assertj-core:${assertjVersion}"
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "org.mockito:mockito-inline:${mockitoVersion}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
+    
+    testImplementation "de.flapdoodle.embed:de.flapdoodle.embed.mongo:${embeddedMongoVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
