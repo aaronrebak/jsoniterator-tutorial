@@ -1,0 +1,12 @@
+json-client:
+  ribbon:
+
+  scheme: http
+  host: localhost
+  port: ${wiremock.server.port}
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 0

@@ -1,0 +1,10 @@
+json-client:
+  scheme: https
+  host: localhost
+  port: 5555
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 9999
