@@ -8,6 +8,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 
 @DisplayName("JsonModelUnitTest")
 class JsonModelUnitTest {
+
     private static final String JSON_ID = "jsonId";
 
     private JsonModel jsonModel;
@@ -20,7 +21,7 @@ class JsonModelUnitTest {
     @Test
     @DisplayName("That A JsonModel is contructed correclty")
     void jsonModelIsConstructedCorrectly() {
-       then(jsonModel.get_id()).isEqualTo(JSON_ID);
+       then(jsonModel.getId()).isEqualTo(JSON_ID);
     }
 
 }

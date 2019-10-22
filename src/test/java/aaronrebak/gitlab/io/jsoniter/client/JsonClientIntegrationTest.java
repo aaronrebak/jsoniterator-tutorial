@@ -38,7 +38,7 @@ class JsonClientIntegrationTest {
                         )
         );
 
-        InputStream inputStream = jsonClient.getJson().body().asInputStream();
+        final InputStream inputStream = jsonClient.getJson().body().asInputStream();
 
         verify(getRequestedFor(urlEqualTo(REQUEST)));
 

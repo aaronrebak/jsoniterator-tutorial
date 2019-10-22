@@ -7,11 +7,10 @@ buildscript {
 
         springBootVersion = "2.1.7.RELEASE"
         springCloudVersion = "2.1.2.RELEASE"
-        springRetryVersion = "1.2.4.RELEASE"
         jsonIterVersion = "0.9.23"
         javaAssistVersion = "3.25.0-GA"
-        junitJupiterVersion = "5.4.2"
-        mockitoVersion = "3.0.0"
+        junitJupiterVersion = "5.5.2"
+        mockitoVersion = "3.1.0"
         assertjVersion = "3.13.2"
         
         embeddedMongoVersion = "2.2.0"
@@ -37,14 +36,12 @@ repositories {
 
 dependencies {
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
-
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     implementation "org.projectlombok:lombok:${lombokVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}"
     implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudVersion}"
     implementation "io.github.openfeign:feign-httpclient:10.3.0"
-
-    implementation "org.springframework.retry:spring-retry:${springRetryVersion}"
 
     implementation "com.jsoniter:jsoniter:${jsonIterVersion}"
     implementation "org.javassist:javassist:${javaAssistVersion}"
@@ -59,6 +56,8 @@ dependencies {
     testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
     
     testImplementation "de.flapdoodle.embed:de.flapdoodle.embed.mongo:${embeddedMongoVersion}"
+
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 }
 
 test {

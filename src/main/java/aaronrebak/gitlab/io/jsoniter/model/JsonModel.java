@@ -10,10 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class JsonModel {
     @Id
-    private String _id;
+    private String id;
+
+    public static JsonModel aJsonModel(final String id) {
+        return new JsonModel(id);
+    }
 
     @JsonCreator
-    public JsonModel(@JsonProperty final String _id) {
-        this._id = _id;
+    public JsonModel(@JsonProperty("_id") final String id) {
+        this.id = id;
     }
 }
