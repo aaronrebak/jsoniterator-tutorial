@@ -28,7 +28,6 @@ class JsonIterServiceSystemTest {
     @Test
     @DisplayName("Will Ingest Json to a Database when the Json Controller Endpoint is Triggered")
     void endpointTriggersIngestToDatabase(@Autowired MockMvc mockMvc, @Autowired CrudRepository<JsonModel, String> crudRepository) throws Exception {
-        //given wiremock is stubbed with endpoint data
         givenThat(
                 WireMock.get(urlEqualTo(EXTERNAL_ENDPOINT))
                         .willReturn(
@@ -38,10 +37,8 @@ class JsonIterServiceSystemTest {
                         )
         );
 
-        //when endpoint is triggered
         mockMvc.perform(MockMvcRequestBuilders.get(JSON_CONTROLLER_ENDPOINT)).andReturn();
 
-        //then data is ingested into the database
         then(crudRepository.findAll()).containsExactlyInAnyOrder(
                 aJsonModel("id1"),
                 aJsonModel("id2"),
