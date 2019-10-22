@@ -2,7 +2,6 @@ package aaronrebak.gitlab.io.jsoniter.iterator;
 
 import aaronrebak.gitlab.io.jsoniter.model.JsonModel;
 import com.jsoniter.JsonIterator;
-import com.jsoniter.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 
 import java.io.IOException;

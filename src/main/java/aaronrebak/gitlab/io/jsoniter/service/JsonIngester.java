@@ -14,8 +14,6 @@ import java.io.IOException;
 @Service
 public class JsonIngester {
 
-    private static final int BUFFER_SIZE = 1024;
-
     private JsonClient jsonClient;
     private JsonModelIteratorFactory jsonModelIteratorFactory;
     private JsonModelRepository jsonModelRepository;
